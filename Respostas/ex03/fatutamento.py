@@ -4,9 +4,10 @@ EXERCÍCIO 03: Faturamento
 """
 import json
 
-data = '{"faturamento": [1000, 2000, 0, 3000, 4000, 0, 5000]}'
+with open('dados.json', 'r') as file:
+    dados = json.load(file)
 
-faturamento = json.loads(data)["faturamento"]
+faturamento = [item['valor'] for item in dados]
 
 menor = min(faturamento) if faturamento else 0
 maior = max(faturamento) if faturamento else 0
